@@ -1,7 +1,7 @@
-import type { Config } from "tailwindcss"
-import colors from "tailwindcss/colors" // Import Tailwind colors
+const colors = require("tailwindcss/colors");
 
-const config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   darkMode: "class",
   content: [
     './pages/**/*.{ts,tsx}',
@@ -53,9 +53,8 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom brand colors
-        brandTeal: colors.teal[600],    // Primary
-        brandSky: colors.sky[500],      // Accent
+        brandTeal: colors.teal[600],
+        brandSky: colors.sky[500],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -79,6 +78,4 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
-
-export default config
+};
