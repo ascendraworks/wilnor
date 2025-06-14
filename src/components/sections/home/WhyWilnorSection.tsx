@@ -3,7 +3,6 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Image from "next/image";
-import { CheckCircle } from "lucide-react";
 
 const carouselImages = [
   "/img/why-choose-us1.png",

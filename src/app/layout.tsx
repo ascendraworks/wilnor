@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Wilnor & Lavett's Employment - Your Trusted Maid Agency",
+  title: "Wilnor & Lavetts Employment - Your Trusted Maid Agency",
   description: "Providing reliable and professional helper arrangements. Stop stressing, start living.",
 };
 
