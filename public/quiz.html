@@ -1,0 +1,976 @@
+<meta>
+ 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+ <title>
+  The Working Parent's Domestic Helper Compatibility Test
+ </title>
+ <style>
+  :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #ff9e6d;
+            --accent-color: #6bbaa7;
+            --light-bg: #f9f9f9;
+            --dark-text: #333333;
+            --light-text: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+        .intro {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .emotional-intro {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .quiz-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+        }
+        .progress-container {
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .progress {
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+        .progress-text {
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+        }
+        .question-container {
+            margin-bottom: 30px;
+        }
+        .question {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .question-context {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option {
+            padding: 15px;
+            background-color: var(--light-bg);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background-color: #e8f0fe;
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        .multi-select .option.selected {
+            background-color: #e8f0fe;
+            color: var(--dark-text);
+            border-color: var(--primary-color);
+            position: relative;
+            padding-right: 40px;
+        }
+        .multi-select .option.selected::after {
+            content: "✓";
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .btn-prev {
+            background-color: #e0e0e0;
+            color: var(--dark-text);
+        }
+        .btn-prev:hover:not(:disabled) {
+            background-color: #d0d0d0;
+        }
+        .btn-next {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .btn-next:hover:not(:disabled) {
+            background-color: #3a5a85;
+        }
+        .result-container {
+            text-align: center;
+            display: none;
+        }
+        .result-header {
+            margin-bottom: 20px;
+        }
+        .result-title {
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .result-description {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .emotional-result {
+            background-color: #fff5e6;
+            padding: 20px;
+            border-left: 4px solid var(--secondary-color);
+            margin: 20px 0;
+            text-align: left;
+        }
+        .result-content {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .result-section {
+            margin-bottom: 20px;
+        }
+        .result-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .result-section ul {
+            padding-left: 20px;
+        }
+        .result-section li {
+            margin-bottom: 5px;
+        }
+        .testimonial {
+            font-style: italic;
+            background-color: #f5f9ff;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            position: relative;
+        }
+        .testimonial:before {
+            content: '"';
+            font-size: 60px;
+            color: rgba(74, 111, 165, 0.1);
+            position: absolute;
+            top: -15px;
+            left: 10px;
+        }
+        .lead-form-container {
+            background-color: #f0f7ff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            border: 1px solid #d0e0f0;
+        }
+        .lead-form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .emotional-appeal {
+            background-color: #fffbeb;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 15px 0;
+            border-left: 3px solid #ffc107;
+        }
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .form-group input, .form-group select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+        }
+        .submit-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #ff8a50;
+        }
+        .privacy-notice {
+            font-size: 12px;
+            color: #666;
+            margin-top: 15px;
+            text-align: center;
+        }
+        .bonus-offer {
+            background-color: #fff9e6;
+            border: 1px dashed #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-weight: 600;
+            color: #856404;
+        }
+        .hidden {
+            display: none;
+        }
+        .step-2-form {
+            display: none;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .quiz-container {
+                padding: 20px;
+            }
+            .question {
+                font-size: 18px;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+ </style>
+ <div class="container">
+  <header>
+   <h1>
+    Your Family's Perfect Match
+   </h1>
+   <p class="intro">
+    Find Your Family's Perfect Match in Just 3 Minutes
+   </p>
+   <div class="emotional-intro">
+    "I used to feel torn between my career and my children every single day. Finding the right helper changed everything for our family." - Sarah, mother of two
+   </div>
+  </header>
+  <div class="quiz-container">
+   <div class="progress-container">
+    <div class="progress-bar">
+     <div class="progress" id="progress-bar" style="width: 0%">
+     </div>
+    </div>
+    <div class="progress-text">
+     Question
+     <span id="current-question">
+      1
+     </span>
+     of
+     <span id="total-questions">
+      12
+     </span>
+    </div>
+   </div>
+   <div id="quiz-content">
+    <!-- Questions will be dynamically inserted here -->
+   </div>
+   <div class="buttons">
+    <button class="btn-prev" id="prev-btn" disabled="">
+     Previous
+    </button>
+    <button class="btn-next" id="next-btn">
+     Next
+    </button>
+   </div>
+  </div>
+  <div class="result-container" id="result-container">
+   <div class="result-header">
+    <h2 class="result-title">
+     Your Result:
+     <span id="result-type">
+     </span>
+    </h2>
+    <p class="result-description">
+     Based on your responses, your family would benefit most from a
+     <span id="result-type-description">
+     </span>
+     .
+    </p>
+   </div>
+   <div class="emotional-result">
+    <p>
+     We understand the constant balancing act you face as a working parent. The right helper isn't just household support—they're the person who helps you reclaim precious moments with your children while pursuing your career with confidence.
+    </p>
+   </div>
+   <div class="result-content">
+    <div class="result-section">
+     <h3>
+      Profile Description:
+     </h3>
+     <p id="profile-description">
+     </p>
+    </div>
+    <div class="result-section">
+     <h3>
+      Key Benefits for Your Family:
+     </h3>
+     <ul id="key-benefits">
+     </ul>
+    </div>
+    <div class="testimonial">
+     <p id="testimonial-quote">
+     </p>
+     <p id="testimonial-author" style="text-align: right; font-weight: bold; margin-top: 10px;">
+     </p>
+    </div>
+    <div class="result-section">
+     <h3>
+      Recommended Qualifications:
+     </h3>
+     <ul id="recommended-qualifications">
+     </ul>
+    </div>
+    <div class="result-section">
+     <h3>
+      Next Steps:
+     </h3>
+     <p id="next-steps">
+     </p>
+    </div>
+   </div>
+   <div style="margin-top: 30px; text-align: center;">
+    <h3>
+     Message Your Results to Our Placement Team
+    </h3>
+    <p>
+     Enter your name to find out more about finding the helper for you!
+    </p>
+    <div style="margin-top: 20px;">
+     <input type="text" id="full-name" placeholder="Your Name" style="padding: 10px; width: 250px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+    </div>
+    <button class="submit-btn" style="margin-top: 20px;" onclick="submitForm()">
+     Message on WhatsApp
+    </button>
+   </div>
+  </div>
+ </div>
+ <script>
+  // Quiz data with emotional context
+        const quizData = [
+            {
+                question: "How many children do you have in your household?",
+                context: "Every child adds joy—and complexity—to your family dynamic. The right helper needs to connect with each child's unique personality.",
+                options: [
+                    "No children yet, but planning for the future",
+                    "1 child",
+                    "2 children",
+                    "3 or more children",
+                    "No children or all have grown up"
+                ],
+                type: "single"
+            },
+            {
+                question: "What are the ages of your children? (Select all that apply)",
+                context: "Each developmental stage brings different needs and challenges. Your helper should be equipped for your children's specific stages.",
+                options: [
+                    "Infant (0-1 year)",
+                    "Toddler (1-3 years)",
+                    "Preschool (3-6 years)",
+                    "Primary school (7-12 years)",
+                    "Secondary school (13-18 years)",
+                    "No children"
+                ],
+                type: "multi"
+            },
+            {
+                question: "What best describes your family's typical weekday schedule?",
+                context: "The constant juggle of work and family commitments can be overwhelming. The right support can transform chaos into calm.",
+                options: [
+                    "Both parents work long hours (10+ hours daily)",
+                    "Standard office hours with occasional overtime",
+                    "Flexible work arrangements with some work-from-home days",
+                    "Irregular shifts or frequent business travel"
+                ],
+                type: "single"
+            },
+            {
+                question: "What aspects of childcare are most important to you? (Select top 2)",
+                context: "When you're away from your children, knowing they're receiving the right kind of care brings invaluable peace of mind.",
+                options: [
+                    "Educational support and homework help",
+                    "Maintaining consistent routines and discipline",
+                    "Engaging children in creative and developmental activities",
+                    "Managing children's social activities and playdates",
+                    "Infant care and early childhood development",
+                    "No children"
+                ],
+                type: "multi",
+                maxSelections: 2
+            },
+            {
+                question: "Beyond childcare, which household responsibilities are priorities? (Select top 2)",
+                context: "Coming home to household tasks can steal precious family time. Imagine walking through the door and being able to focus solely on your children.",
+                options: [
+                    "Cooking and meal preparation",
+                    "Cleaning and household organization",
+                    "Laundry and clothing care",
+                    "Grocery shopping and errands",
+                    "Pet care",
+                    "Elderly care"
+                ],
+                type: "multi",
+                maxSelections: 2
+            },
+             {
+                question: "How involved would you like your helper to be in elderly care?",
+                context: "Many parents worry about missing important moments. The right helper can be your eyes and ears when you can't be there.",
+                options: [
+                    "No elderly",
+                    "Minimal involvement (independent elderly)",
+                    "Moderate involvement (need supervision)",
+                    "Significant involvement (wheelchair bound)",
+                    "Comprehensive involvement (bedridden)"
+                ],
+                type: "single"
+             },
+            {
+                question: "How would you describe your expectations for home management?",
+                context: "A well-managed home creates a foundation for family wellbeing. What level of order would help your family thrive?",
+                options: [
+                    "Basic maintenance (keeping things tidy)",
+                    "Standard care (regular cleaning and organization)",
+                    "Detailed management (thorough cleaning and organized systems)",
+                    "Premium care (exceptional attention to detail and household management)"
+                ],
+                type: "single"
+            },
+            {
+                question: "What level of English proficiency do you require?",
+                context: "Clear communication builds trust and prevents misunderstandings, especially when it comes to your children's needs.",
+                options: [
+                    "Basic communication is sufficient",
+                    "Good conversational skills needed",
+                    "Strong verbal and written communication required",
+                    "No English is acceptable"
+                ],
+                type: "single"
+            },
+            {
+                question: "How important is cultural compatibility to your family?",
+                context: "Your helper becomes part of your family's daily life. Cultural alignment can create harmony or friction in your home.",
+                options: [
+                    "Not important - we're flexible and adaptable",
+                    "Somewhat important - we have some preferences",
+                    "Very important - we have specific cultural requirements",
+                    "Essential - cultural alignment is a top priority"
+                ],
+                type: "single"
+            },
+            {
+                question: "What level of experience do you prefer in a domestic helper?",
+                context: "Experience brings confidence, but sometimes fresh enthusiasm is equally valuable. What would make you feel most comfortable?",
+                options: [
+                    "First-time helper (fresh, trainable)",
+                    "1-2 years of experience",
+                    "3-5 years of experience",
+                    "5+ years of experience"
+                ],
+                type: "single"
+            },
+            {
+                question: "Which specialized skills or training are important to you? (Select all that apply)",
+                context: "Specialized skills can address your family's unique needs and provide extra reassurance in critical areas.",
+                options: [
+                    "First aid and emergency response",
+                    "Early childhood education",
+                    "Special needs care",
+                    "Elderly care",
+                    "Cooking specific cuisines",
+                    "Newborn care"
+                ],
+                type: "multi"
+            },
+            {
+                question: "How do you prefer to manage your helper?",
+                context: "Finding the right management style creates a healthy working relationship and reduces stress for everyone in your home.",
+                options: [
+                    "Hands-on with detailed instructions and regular check-ins",
+                    "Balanced approach with clear guidelines but some autonomy",
+                    "Results-oriented with significant autonomy",
+                    "Partnership approach with collaborative decision-making"
+                ],
+                type: "single"
+            }
+        ];
+        quizData.push({ type: 'form' });
+        // Results data with emotional elements
+        const resultsData = {
+            "elderly": {
+        type: "The Elderly Care Specialist",
+        description: "Elderly Care Specialist",
+        profileDescription: "This domestic helper specializes in providing compassionate and professional care for elderly individuals, ensuring their comfort, safety, and well-being.",
+        keyBenefits: [
+            "Provides companionship and engaging activities to combat loneliness and isolation.",
+            "Assists with personal care tasks such as bathing, dressing, and mobility.",
+            "Administers medication as prescribed and monitors health conditions.",
+            "Prepares nutritious and easy-to-eat meals tailored to dietary needs.",
+            "Maintains a clean and safe living environment to prevent accidents.",
+            "Offers emotional support and understanding to the elderly person and their family."
+        ],
+        qualifications: [
+            "Experience in providing care for the elderly (preferably with verifiable references).",
+            "Knowledge of common age-related health issues and potential complications.",
+            "Ability to lift and assist with mobility (if required by the elderly person's needs).",
+            "Patience, empathy, and excellent communication skills.",
+            "Understanding of elderly care best practices."
+        ],
+        nextSteps: "Our agency carefully screens elderly care specialists to ensure they meet the highest standards of compassion and expertise. To find your Elderly Care Specialist, schedule a consultation with our placement experts who will assess your specific needs and match you with pre-screened candidates.",
+        testimonial: "Finding the right care for my aging parents was incredibly stressful until we found our helper through your agency.  She's compassionate, reliable, and provides them with excellent care, giving me peace of mind.",
+        testimonialAuthor: "David L., son of elderly parents"
+            },
+            "household": {
+                type: "The Household Management Pro",
+                description: "Household Management Pro",
+                profileDescription: "This domestic helper excels at creating order from chaos, managing multiple household responsibilities while ensuring children are well-cared for. With exceptional organizational skills and efficiency, these helpers transform busy households into well-oiled machines.",
+                keyBenefits: [
+                    "Creates and maintains household systems that eliminate the mental load of remembering everything",
+                    "Manages your elderly and children's schedules alongside household duties so nothing falls through the cracks",
+                    "Prepares nutritious meals that accommodate busy schedules and eliminate daily dinner stress",
+                    "Anticipates family needs before they become issues, preventing household emergencies",
+                    "Reduces the overwhelming mental load that working parents carry through proactive management"
+                ],
+                qualifications: [
+                    "5+ years of experience in household management",
+                    "Proven ability to multitask effectively",
+                    "Strong time management and organizational skills",
+                    "Experience with meal planning and preparation",
+                    "Ability to manage household inventory and scheduling"
+                ],
+                nextSteps: "Our agency maintains a select pool of experienced household managers who have demonstrated exceptional organizational abilities. To find your Household Management Pro, complete our detailed household assessment, and our experts will match you with candidates who have successfully managed similar family situations.",
+                testimonial: "Before finding our helper, I was constantly overwhelmed by the never-ending household tasks. I felt like I was failing at work AND at home. Now our home runs smoothly even with my demanding career. The mental freedom of not having to remember and manage everything has been life-changing.",
+                testimonialAuthor: "Daniel, father of two and finance executive"
+            },
+            "infant": {
+                type: "The Infant Care Expert",
+                description: "Infant Care Expert",
+                profileDescription: "This domestic helper specializes in the delicate care of babies and toddlers, providing peace of mind for new parents returning to work. With specialized training in infant development and care, these helpers ensure your little one receives attentive, loving care during these crucial early years.",
+                keyBenefits: [
+                    "Provides specialized care tailored to your baby's developmental stage, easing the guilt of returning to work",
+                    "Creates consistent routines that promote healthy sleep patterns, ending exhausting sleep struggles",
+                    "Supports breastfeeding mothers with proper milk storage and feeding, maintaining that special bond",
+                    "Documents developmental milestones so you never miss those precious first moments",
+                    "Offers experienced guidance for first-time parents, reducing anxiety and uncertainty"
+                ],
+                qualifications: [
+                    "Specialized training in newborn and infant care",
+                    "Experience with baby-led weaning and feeding techniques",
+                    "Knowledge of early developmental milestones",
+                    "Understanding of safe sleep practices"
+                ],
+                nextSteps: "Our agency conducts rigorous screening for infant care specialists to ensure the highest standards of care. To find your Infant Care Expert, book our specialized new parent consultation where we'll discuss your parenting philosophy and match you with helpers who have proven infant care expertise.",
+                testimonial: "Returning to work after maternity leave was heartbreaking. I cried every morning for weeks. Finding a helper who specialized in infant care was the only thing that made it bearable. The daily photos and updates, the way she maintained our feeding schedule, and her genuine love for our baby transformed my experience as a working mother.",
+                testimonialAuthor: "Priya, mother of 8-month-old twins"
+            },
+            "multitasking": {
+                type: "The Multi-Tasking Family Assistant",
+                description: "Multi-Tasking Family Assistant",
+                profileDescription: "This domestic helper is the ultimate family support system, adeptly balancing childcare with household management. With versatile skills and adaptable approaches, these helpers thrive in dynamic family environments where priorities may shift daily.",
+                keyBenefits: [
+                    "Seamlessly transitions between childcare and household duties, adapting to your family's changing needs",
+                    "Adapts quickly to unexpected schedule changes, eliminating the stress of last-minute work commitments",
+                    "Manages children of different ages with appropriate care for each, ending sibling conflicts",
+                    "Maintains household functionality during particularly busy periods when you feel pulled in all directions",
+                    "Provides consistent support across all family activities, creating stability in your busy household"
+                ],
+                qualifications: [
+                    "3+ years experience with multi-child families",
+                    "Demonstrated adaptability and problem-solving skills",
+                    "Experience managing varied household responsibilities",
+                    "Ability to prioritize tasks effectively",
+                    "Energy and stamina for active family support"
+                ],
+                nextSteps: "Our agency specializes in identifying helpers with the versatility modern families need. To find your Multi-Tasking Family Assistant, participate in our comprehensive family needs assessment, and our matching specialists will identify candidates whose experience aligns with your family's unique combination of needs.",
+                testimonial: "With three children in different schools and activities, plus both parents working full-time, our family was in constant chaos. Finding a helper who could juggle it all—from school pickups to meal prep to homework help—has transformed our home from a stress zone to a place where we can actually enjoy being together.",
+                testimonialAuthor: "Wei Lin, father of three children aged 4, 8, and 12"
+            },
+            "scheduling": {
+                type: "The Schedule-Balancing Coordinator",
+                description: "Schedule-Balancing Coordinator",
+                profileDescription: "This domestic helper excels at managing complex family schedules, ensuring children are where they need to be while maintaining household order. With exceptional planning abilities and foresight, these helpers ensure nothing falls through the cracks in busy family calendars.",
+                keyBenefits: [
+                    "Coordinates children's activities, appointments, and school events, eliminating the fear of forgetting important dates",
+                    "Manages transportation logistics for busy families, ending the daily stress of coordinating pickups and drop-offs",
+                    "Prepares for upcoming schedule demands proactively, preventing last-minute panics",
+                    "Maintains communication between family members about schedules, creating family harmony",
+                    "Creates systems that reduce schedule-related stress, giving you mental space for what matters"
+                ],
+                qualifications: [
+                    "Strong planning and time management skills",
+                    "Valid driver's license (if applicable)",
+                    "Experience coordinating children's activities",
+                    "Digital calendar management abilities",
+                    "Excellent communication skills"
+                ],
+                nextSteps: "Our agency has developed a specialized assessment to identify helpers with superior coordination abilities. To find your Schedule-Balancing Coordinator, complete our family schedule mapping session, and our experts will match you with candidates who have successfully managed similar scheduling complexities.",
+                testimonial: "I used to wake up with anxiety every morning, mentally running through all the day's logistics and worrying about what I might have forgotten. Now our helper manages our complex family schedule so seamlessly that I can focus on my work and actually be present with my children when I'm with them, instead of constantly planning the next move.",
+                testimonialAuthor: "Jasmine, mother of two and healthcare professional"
+            }
+        };
+        // Quiz state
+        let currentQuestion = 0;
+        let answers = Array(quizData.length).fill(null).map(() => []);
+        let quizComplete = false;
+        // DOM elements
+        const quizContent = document.getElementById('quiz-content');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const resultContainer = document.getElementById('result-container');
+        // Initialize quiz
+        totalQuestionsEl.textContent = quizData.length;
+        showQuestion(currentQuestion);
+        // Event listeners
+        prevBtn.addEventListener('click', showPreviousQuestion);
+        nextBtn.addEventListener('click', handleNextButton);
+        // Functions
+        function showQuestion(index) {
+    const question = quizData[index];
+    currentQuestionEl.textContent = index + 1;
+    const progress = ((index + 1) / quizData.length) * 100;
+    progressBar.style.width = `${progress}%`;
+    prevBtn.disabled = index === 0;
+    nextBtn.textContent = index === quizData.length - 1 ? 'See Results' : 'Next';
+    if (question.type === 'form') {
+        quizContent.innerHTML = `
+            <div class="question-container">
+                <div class="question">Let's stay in touch</div>
+                <div class="question-context">Enter your contact details to receive your match and speak to our placement team.</div>
+                <div class="form-group">
+                    <label for="inline-name">Your Name</label>
+                    <input type="text" id="inline-name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="inline-phone">Your Phone Number</label>
+                    <input type="text" id="inline-phone" placeholder="Enter your phone number">
+                </div>
+            </div>
+        `;
+        updateNextButtonState();
+        document.getElementById('inline-name').addEventListener('input', updateNextButtonState);
+        document.getElementById('inline-phone').addEventListener('input', updateNextButtonState);
+        return;
+    }
+    let questionHTML = `
+        <div class="question-container">
+            <div class="question">${question.question}</div>
+            <div class="question-context">${question.context}</div>
+            <div class="options ${question.type === 'multi' ? 'multi-select' : ''}">
+    `;
+    question.options.forEach((option, optionIndex) => {
+        const isSelected = answers[index].includes(optionIndex);
+        questionHTML += `
+            <div class="option ${isSelected ? 'selected' : ''}" data-index="${optionIndex}">
+                ${option}
+            </div>
+        `;
+    });
+    questionHTML += `</div></div>`;
+    quizContent.innerHTML = questionHTML;
+    document.querySelectorAll('.option').forEach(option => {
+        option.addEventListener('click', () => selectOption(option));
+    });
+    updateNextButtonState();
+}
+        function selectOption(option) {
+            const optionIndex = parseInt(option.dataset.index);
+            const question = quizData[currentQuestion];
+            if (question.type === 'single') {
+                // For single select, clear all selections first
+                document.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                option.classList.add('selected');
+                answers[currentQuestion] = [optionIndex];
+            } else {
+                // For multi-select
+                if (option.classList.contains('selected')) {
+                    // Deselect if already selected
+                    option.classList.remove('selected');
+                    answers[currentQuestion] = answers[currentQuestion].filter(i => i !== optionIndex);
+                } else {
+                    // Check if max selections is reached
+                    if (question.maxSelections && answers[currentQuestion].length >= question.maxSelections) {
+                        // If max reached, remove the first selection
+                        const firstSelection = answers[currentQuestion][0];
+                        document.querySelector(`.option[data-index="${firstSelection}"]`).classList.remove('selected');
+                        answers[currentQuestion].shift();
+                    }
+                    // Add new selection
+                    option.classList.add('selected');
+                    answers[currentQuestion].push(optionIndex);
+                }
+            }
+            updateNextButtonState();
+        }
+        function updateNextButtonState() {
+    if (quizData[currentQuestion].type === 'form') {
+        const name = document.getElementById('inline-name')?.value.trim();
+        const phone = document.getElementById('inline-phone')?.value.trim();
+        nextBtn.disabled = !(name && phone);
+    } else {
+        nextBtn.disabled = answers[currentQuestion].length === 0;
+    }
+}
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+        function handleNextButton() {
+    if (quizData[currentQuestion].type === 'form') {
+        const name = document.getElementById('inline-name').value.trim();
+        const phone = document.getElementById('inline-phone').value.trim();
+        if (!name || !phone) {
+            alert("Please enter your name and phone number.");
+            return;
+        }
+        localStorage.setItem("fullNameForWhatsApp", name);
+        localStorage.setItem("userPhoneNumber", phone);
+        currentQuestion++;
+        showResults();
+    } else if (currentQuestion < quizData.length - 1) {
+        currentQuestion++;
+        showQuestion(currentQuestion);
+    } else {
+        showResults();
+    }
+}
+        function showResults() {
+    // Hide quiz container and show results
+    document.querySelector('.quiz-container').style.display = 'none';
+    resultContainer.style.display = 'block';
+    // Determine result type based on answers
+    const resultType = calculateResult();
+    const resultName = resultsData[resultType].type;
+    // Populate result content
+    document.getElementById('result-type').textContent = resultName;
+    document.getElementById('result-type-description').textContent = resultsData[resultType].description;
+    document.getElementById('profile-description').textContent = resultsData[resultType].profileDescription;
+    document.getElementById('testimonial-quote').textContent = resultsData[resultType].testimonial;
+    document.getElementById('testimonial-author').textContent = resultsData[resultType].testimonialAuthor;
+    const keyBenefitsList = document.getElementById('key-benefits');
+    keyBenefitsList.innerHTML = '';
+    resultsData[resultType].keyBenefits.forEach(benefit => {
+        const li = document.createElement('li');
+        li.textContent = benefit;
+        keyBenefitsList.appendChild(li);
+    });
+    const qualificationsList = document.getElementById('recommended-qualifications');
+    qualificationsList.innerHTML = '';
+    resultsData[resultType].qualifications.forEach(qualification => {
+        const li = document.createElement('li');
+        li.textContent = qualification;
+        qualificationsList.appendChild(li);
+    });
+    document.getElementById('next-steps').textContent = resultsData[resultType].nextSteps;
+    // Submit to Gmail
+    const fullName = localStorage.getItem("fullNameForWhatsApp");
+    const phone = localStorage.getItem("userPhoneNumber");
+    const payload = {
+        name: fullName,
+        phone: phone,
+        result: resultName,
+        timestamp: new Date().toISOString()
+    };
+    fetch('https://script.google.com/macros/s/AKfycby-unBgOoA_TNxpZYMEjEKRGC2rEUyetjsZXczN9DqM19ziWqPrwFuAWHJ1k530j5E72Q/exec', {
+        method: 'POST',
+        mode: 'no-cors',  // <-- ADD THIS LINE
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    }).then(res => {
+        if (!res.ok) {
+            console.error("Gmail send failed:", res.status);
+        } else {
+            console.log("Gmail send success");
+        }
+    }).catch(err => console.error("Gmail error:", err));
+    // Auto open WhatsApp
+    const whatsappMessage = `Hi, my name is ${fullName}. I just completed your helper compatibility quiz and my result was "${resultName}". I’d like to speak to someone about finding the right helper for my family.`;
+    const encoded = encodeURIComponent(whatsappMessage);
+    window.open(`https://wa.me/6580763141?text=${encoded}`, '_blank');
+    // Scroll to top of results
+    window.scrollTo(0, 0);
+}
+        function calculateResult() {
+            // Simple algorithm to determine result type based on answers
+            // This is a placeholder - in a real implementation, you would have a more sophisticated algorithm
+            // Count points for each result type
+            let points = {
+                elderly: 0,
+                household: 0,
+                infant: 0,
+                multitasking: 0,
+                scheduling: 0
+            };
+            // Question 1: Number of children
+            if (answers[0][0] === 0) points.infant += 2; // Planning for future
+            if (answers[0][0] === 1) points.infant += 1; // 1 child
+            if (answers[0][0] === 2) points.multitasking += 2; // 2 children
+            if (answers[0][0] === 3) points.multitasking += 3; // 3+ children
+            if (answers[0][0] === 4) points.household += 3; // no kids
+            // Question 2: Ages of children
+            if (answers[1].includes(0)) points.infant += 3; // Infant
+            if (answers[1].includes(1)) points.infant += 2; // Toddler
+            if (answers[1].includes(2)) points.multitasking += 1; // Preschool
+            if (answers[1].includes(3)) points.multitasking += 2; // Primary school
+            if (answers[1].includes(4)) points.multitasking += 3; // Secondary school
+            if (answers[1].includes(5)) points.household += 3; // no kids
+            // Question 3: Family schedule
+            if (answers[2][0] === 0) points.household += 3; // Long hours
+            if (answers[2][0] === 1) points.multitasking += 2; // Standard hours
+            if (answers[2][0] === 2) points.multitasking += 1; // Flexible
+            if (answers[2][0] === 3) points.scheduling += 3; // Irregular/travel
+            // Question 4: Childcare priorities
+            if (answers[3].includes(0)) points.multitasking += 3; // Educational support
+            if (answers[3].includes(1)) points.household += 2; // Routines
+            if (answers[3].includes(2)) points.multitasking += 2; // Creative activities
+            if (answers[3].includes(3)) points.scheduling += 2; // Social activities
+            if (answers[3].includes(4)) points.infant += 5; // Infant care
+            if (answers[3].includes(5)) points.household += 5; // no children
+            // Question 5: Household priorities
+            if (answers[5].includes(0)) points.household += 2; // Cooking
+            if (answers[5].includes(1)) points.household += 2; // Cleaning
+            if (answers[5].includes(2)) points.household += 1; // Laundry
+            if (answers[5].includes(3)) points.scheduling += 2; // Shopping/errands
+            if (answers[5].includes(4)) points.multitasking += 1; // Pet care
+            if (answers[5].includes(5)) points.elderly += 10; // eldery care
+            // Question 6: elderly 
+            if (answers[4][0] === 0) points.household += 1; // Minimal
+            if (answers[4][0] === 1) points.multitasking += 1; // Moderate
+            if (answers[4][0] === 2) points.elderly += 20; // Significant
+            if (answers[4][0] === 3) points.elderly += 20; // Comprehensive
+            if (answers[4][0] === 4) points.household += 3; // no elderly
+            // Question 7: Home management expectations
+            if (answers[6][0] === 0) points.multitasking += 1; // Basic
+            if (answers[6][0] === 1) points.multitasking += 1; // Standard
+            if (answers[6][0] === 2) points.household += 2; // Detailed
+            if (answers[6][0] === 3) points.household += 3; // Premium
+            // Question 8: English proficiency
+            if (answers[7][0] === 0) points.household += 1; // Basic
+            if (answers[7][0] === 1) points.multitasking += 1; // Good
+            if (answers[7][0] === 2) points.household += 1; // Strong
+            if (answers[7][0] === 3) points.elderly += 2; // No English
+            // Question 9: Cultural compatibility
+            // This doesn't strongly affect the helper type
+            // Question 10: Experience level
+            if (answers[9][0] === 0) points.multitasking += 1; // First-time
+            if (answers[9][0] === 1) points.multitasking += 1; // 1-2 years
+            if (answers[9][0] === 2) points.household += 1; // 3-5 years
+            if (answers[9][0] === 3) points.household += 2; // 5+ years
+            // Question 11: Specialized skills
+            if (answers[10].includes(0)) points.infant += 1; // First aid
+            if (answers[10].includes(1)) points.household += 2; // Early childhood education
+            if (answers[10].includes(2)) points.elderly += 1; // Special needs
+            if (answers[10].includes(3)) points.elderly += 20; // Elderly care
+            if (answers[10].includes(4)) points.household += 1; // Cooking
+            if (answers[10].includes(5)) points.infant += 10; // Newborn care
+            // Question 12: Management style
+            if (answers[11][0] === 0) points.household += 1; // Hands-on
+            if (answers[11][0] === 1) points.household += 1; // Balanced
+            if (answers[11][0] === 2) points.multitasking += 1; // Results-oriented
+            if (answers[11][0] === 3) points.multitasking += 1; // Partnership
+            // Find the result type with the highest points
+            let maxPoints = 0;
+            let resultType = 'multitasking'; // Default
+            for (const type in points) {
+                if (points[type] > maxPoints) {
+                    maxPoints = points[type];
+                    resultType = type;
+                }
+            }
+            return resultType;
+        }
+        function submitForm() {
+    const fullName = document.getElementById('full-name').value.trim();
+    if (!fullName) {
+        alert('Please enter your name.');
+        return;
+    }
+    const resultType = calculateResult();
+    const resultName = resultsData[resultType].type;
+    const message = `Hi, my name is ${fullName}. I just completed your helper compatibility quiz and my result was "${resultName}". I’d like to speak to someone about finding the right helper for my family.`;
+    const encodedMessage = encodeURIComponent(message);
+    window.location.href = `https://wa.me/6580763141?text=${encodedMessage}`;
+}
+ </script>

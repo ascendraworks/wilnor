@@ -8,9 +8,9 @@ const Footer = () => {
         <div>
           <h3 className="mb-3 font-semibold">Contact Us</h3>
           <p className="text-sm text-muted-foreground">Wilnor & Lavett's Employment</p>
-          <p className="text-sm text-muted-foreground">123 Main Street, City</p>
-          <p className="text-sm text-muted-foreground">Email: info@example.com</p>
-          <p className="text-sm text-muted-foreground">WhatsApp: +1234567890</p>
+          <p className="text-sm text-muted-foreground">354 Clementi Ave 2, #01-177A, Singapore 120354</p>
+          <p className="text-sm text-muted-foreground">Email: wilnorlavett@gmail.com</p>
+          <p className="text-sm text-muted-foreground">WhatsApp: +6580763141</p>
         </div>
 
         {/* Column 2: Quick Links */}
