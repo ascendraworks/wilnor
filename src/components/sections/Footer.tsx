@@ -17,10 +17,15 @@ export default function Footer() {
 
         {/* Right: Contact Info + Attribution */}
         <div className="space-y-4">
-          <div className="flex items-center gap-2">
+          <a
+            href="https://wa.me/6580763141"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-teal-700"
+          >
             <FaWhatsapp className="text-teal-600 w-5 h-5" />
             <span className="text-sm">+65 8076 3141</span>
-          </div>
+          </a>
           <div className="flex items-center gap-2">
             <HiOutlineMail className="text-teal-600 w-5 h-5" />
             <span className="text-sm">wilnorlavett@gmail.com</span>

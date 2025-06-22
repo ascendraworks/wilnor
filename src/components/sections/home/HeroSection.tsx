@@ -2,6 +2,7 @@
 
 import { DollarSign, ShieldCheck, RefreshCcw } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function HeroWithFeatures() {
@@ -39,12 +40,16 @@ export default function HeroWithFeatures() {
 
           {/* CTA Buttons */}
           <div className="mt-6 space-y-3 w-full">
-            <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold">
-              Find a Helper Now
-            </Button>
-            <Button variant="outline" className="w-full text-teal-700 border-teal-600 hover:bg-teal-100 text-sm font-semibold">
-              Take Our Free Quiz
-            </Button>
+            <Link href="/biodata" passHref className="w-full">
+              <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold">
+                Find a Helper Now
+              </Button>
+            </Link>
+            <Link href="/quiz" passHref className="w-full">
+              <Button variant="outline" className="w-full text-teal-700 border-teal-600 hover:bg-teal-100 text-sm font-semibold">
+                Take Our Free Quiz
+              </Button>
+            </Link>
           </div>
       </div>
       {/* Feature Strip */}
