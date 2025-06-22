@@ -1,7 +1,12 @@
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/sections/Footer";
+
 export default function TermsPage() {
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <h1 className="text-3xl font-bold mb-6">Terms and Conditions</h1>
+    <>
+      <Navbar />
+      <main className="container mx-auto px-4 py-8 max-w-4xl">
+        <h1 className="text-3xl font-bold mb-6">Terms and Conditions</h1>
 
       <p className="mb-4">
         Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our Privacy Policy govern Wilnor & Lavett's Employment Pte Ltd's relationship with you in relation to this website.
@@ -62,6 +67,8 @@ export default function TermsPage() {
       <p className="mb-4">
         These Terms of Use are governed by the laws of the Republic of Singapore. You agree to submit to the exclusive jurisdiction of the Singapore courts for any disputes arising in connection with these Terms of Use.
       </p>
-    </div>
+    </main>
+      <Footer />
+    </>
   );
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Replace https://wilnorlavett.com with your actual domain -->
+  <url>
+    <loc>https://wilnorlavett.com/</loc>
+    <lastmod>2025-06-23</lastmod> <!-- Update with actual last modified date -->
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://wilnorlavett.com/biodata</loc>
+    <lastmod>2025-06-23</lastmod> <!-- Update with actual last modified date -->
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wilnorlavett.com/logistics</loc>
+    <lastmod>2025-06-23</lastmod> <!-- Update with actual last modified date -->
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wilnorlavett.com/promotion</loc>
+    <lastmod>2025-06-23</lastmod> <!-- Update with actual last modified date -->
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wilnorlavett.com/quiz</loc>
+    <lastmod>2025-06-23</lastmod> <!-- Update with actual last modified date -->
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://wilnorlavett.com/terms</loc>
+    <lastmod>2025-06-23</lastmod> <!-- Update with actual last modified date -->
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://wilnorlavett.com/privacy</loc>
+    <lastmod>2025-06-23</lastmod> <!-- Update with actual last modified date -->
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <!-- Add other important pages here -->
+</urlset>

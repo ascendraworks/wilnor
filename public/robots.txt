@@ -1,0 +1,13 @@
+# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+#
+# Allow all crawlers access to all content
+User-agent: *
+Allow: /
+
+# Disallow crawling of specific paths if needed, for example:
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location (replace with your actual domain)
+Sitemap: https://wilnorlavett.com/sitemap.xml

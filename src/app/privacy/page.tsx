@@ -1,10 +1,15 @@
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/sections/Footer";
+
 export default function PrivacyPolicyPage() {
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
+    <>
+      <Navbar />
+      <main className="container mx-auto px-4 py-8 max-w-4xl">
+        <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
 
       <p className="mb-4">
-        This privacy policy sets out how Wilnor & Lavett's Employment Pte Ltd uses and protects any information that you give when you use this website.
+        This privacy policy sets out how Wilnor & Lavett's Employment Pte (202401313H) Ltd uses and protects any information that you give when you use this website.
       </p>
 
       <p className="mb-4">
@@ -99,6 +104,8 @@ export default function PrivacyPolicyPage() {
       <p className="mb-4">
         We may revise this Notice at any time without prior notice. Continued use of our services constitutes acceptance of changes.
       </p>
-    </div>
+    </main>
+      <Footer />
+    </>
   );
 }

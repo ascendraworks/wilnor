@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-2">
             <HiOutlineMail className="text-teal-600 w-5 h-5" />
-            <span className="text-sm">wilnorlavett.com</span>
+            <span className="text-sm">wilnorlavett@gmail.com</span>
           </div>
 
           <p className="text-xs text-gray-500 italic pt-2 text-center md:text-left">
