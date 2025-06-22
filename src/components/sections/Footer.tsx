@@ -32,6 +32,14 @@ export default function Footer() {
               Ascendra
             </Link>
           </p>
+          <div className="text-xs text-gray-500 italic pt-2 text-center md:text-left space-x-4">
+            <Link href="/terms" className="underline hover:text-gray-700">
+              Terms and Conditions
+            </Link>
+            <Link href="/privacy" className="underline hover:text-gray-700">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
