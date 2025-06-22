@@ -46,7 +46,7 @@ export default function HeroWithFeatures() {
               </Button>
             </Link>
             <Link href="/quiz" passHref className="w-full">
-              <Button variant="outline" className="mt-3 w-full text-teal-700 border-teal-600 hover:bg-teal-100 text-sm font-semibold">
+              <Button variant="outline" className="mt-3 w-full text-teal-700 border-teal-600 hover:bg-teal-500 text-sm font-semibold">
                 Take Our Free Quiz
               </Button>
             </Link>
