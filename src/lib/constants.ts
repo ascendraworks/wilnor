@@ -12,4 +12,4 @@ export const navLinks: NavLink[] = [
 ];
 
 // Add other constants here as needed
-// export const SITE_TITLE = "Wilnor & Lovett's Employment";
+// export const SITE_TITLE = "Wilnor & Lavett's Employment";

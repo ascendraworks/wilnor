@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@portabletext/react": "^3.2.1",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-slot": "^1.2.3",
+    "@sanity/client": "^7.6.0",
     "@tailwindcss/postcss": "^4.0.0-alpha.16",
+    "@types/node": "^20",
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -19,6 +22,7 @@
     "framer-motion": "^12.18.1",
     "lucide-react": "^0.513.0",
     "next": "15.3.3",
+    "next-sanity": "^9.12.0",
     "postcss": "^8.5.5",
     "react": "^18.2.0",
     "react-bits": "^1.0.5",
@@ -30,7 +34,6 @@
     "tailwindcss": "^4.1.10",
     "tailwindcss-animate": "^1.0.7",
     "tw-animate-css": "^1.3.4",
-    "@types/node": "^20",
     "typescript": "^5"
   },
   "devDependencies": {
