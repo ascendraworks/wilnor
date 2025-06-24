@@ -554,7 +554,8 @@
                     "Special needs care",
                     "Elderly care",
                     "Cooking specific cuisines",
-                    "Newborn care"
+                    "Newborn care",
+                    "No Specific Skill"
                 ],
                 type: "multi"
             },
@@ -930,7 +931,7 @@
             if (answers[7][0] === 0) points.household += 1; // Basic
             if (answers[7][0] === 1) points.multitasking += 1; // Good
             if (answers[7][0] === 2) points.household += 1; // Strong
-            if (answers[7][0] === 3) points.elderly += 2; // No English
+            if (answers[7][0] === 3) points.household += 2; // No English
             // Question 9: Cultural compatibility
             // This doesn't strongly affect the helper type
             // Question 10: Experience level
@@ -945,6 +946,7 @@
             if (answers[10].includes(3)) points.elderly += 20; // Elderly care
             if (answers[10].includes(4)) points.household += 1; // Cooking
             if (answers[10].includes(5)) points.infant += 10; // Newborn care
+            if (answers[10].includes(6)) points.household += 1; // No special
             // Question 12: Management style
             if (answers[11][0] === 0) points.household += 1; // Hands-on
             if (answers[11][0] === 1) points.household += 1; // Balanced
