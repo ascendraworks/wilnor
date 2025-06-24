@@ -31,7 +31,7 @@ const services: Service[] = [
   },
   {
     title: "Embassy & Passport Processing",
-    price: "$1300 POEA / $100+ for passport renewal",
+    price: "$1500 POEA / $150 for passport renewal",
     description: "Embassy contract and passport renewal for Indonesian helpers.",
     icon: <GlobeIcon className="w-6 h-6 text-teal-600" />,
   },

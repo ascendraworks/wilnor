@@ -33,9 +33,15 @@ export default function Footer() {
 
           <p className="text-xs text-gray-500 italic pt-2 text-center md:text-left">
             Made by{" "}
-            <Link href="/" className="underline hover:text-gray-700">
+            <Link 
+              href="https://wa.me/6587670797?text=Good%20day%2C%20I%20would%20like%20to%20inquire%20about%20your%20web%20development%20services.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20discuss%20my%20needs."
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="underline hover:text-gray-700"
+            >
               Ascendra
             </Link>
+
           </p>
           <div className="text-xs text-gray-500 italic pt-2 text-center md:text-left space-x-4">
             <Link href="/terms" className="underline hover:text-gray-700">

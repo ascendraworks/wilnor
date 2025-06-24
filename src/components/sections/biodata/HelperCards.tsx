@@ -2,6 +2,7 @@
 import { client } from "@/lib/sanity.client";
 import { helpersQuery } from "@/lib/queries";
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 
 interface Helper {
   _id: string;
@@ -151,9 +152,14 @@ export default function HelperCards() {
         <p className="text-lg text-gray-700">
           Looking for more Indonesian, Filipino, or Myanmar helpers?
         </p>
-        <p className="mt-2 text-xl font-semibold text-orange-600">
-          WhatsApp us directly for the full biodata list.
-        </p>
+        <Link 
+          href="https://wa.me/6567824879?text=Hi%2C%20I%20am%20interested%20in%20the%20full%20biodata%20list.%20Please%20assist%20me%20with%20the%20details."
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="mt-2 inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition"
+        >
+          WhatsApp Us for Full Biodata List
+        </Link>
       </div>
     </section>
   );
