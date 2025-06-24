@@ -73,7 +73,8 @@ export default function HelperCards() {
       className="bg-white rounded-xl shadow-md p-6 space-y-4 border border-teal-200"
     >
       {helper.photoUrl ? (
-        <img src={helper.photoUrl} alt={helper.name} className="w-full h-48 object-cover rounded-md mb-2" />
+       <img src={helper.photoUrl} alt={helper.name} className="w-full h-48 object-contain rounded-md mb-2 bg-gray-100" />
+
       ) : (
         <div className="w-full h-48 bg-gray-200 rounded-md mb-2 flex items-center justify-center">
           <span className="text-gray-500">No Photo</span>
