@@ -153,7 +153,7 @@ export default function HelperCards() {
           Looking for more Indonesian, Filipino, or Myanmar helpers?
         </p>
         <Link 
-          href="https://wa.me/6567824879?text=Hi%2C%20I%20am%20interested%20in%20the%20full%20biodata%20list.%20Please%20assist%20me%20with%20the%20details."
+          href="https://wa.me/6580763141?text=Hi%2C%20I%20am%20interested%20in%20the%20full%20biodata%20list.%20Please%20assist%20me%20with%20the%20details."
           target="_blank" 
           rel="noopener noreferrer"
           className="mt-2 inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition"
