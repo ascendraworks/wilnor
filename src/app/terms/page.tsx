@@ -19,7 +19,7 @@ export default function TermsPage() {
       <h2 className="text-2xl font-semibold mt-8 mb-4">Terms of Use</h2>
 
       <p className="mb-4">
-        This website is owned and operated by Wilnor & Lavett's Employment Pte Ltd (UEN 202401313H). Your use of this website constitutes acceptance of these Terms of Use. If you do not agree, you must not use this site. We reserve the right to edit or delete content, including these Terms of Use, at any time without notice.
+        This website is owned and operated by Wilnor & Lavett's Employment Pte Ltd (UEN 202401313H) Address: 256 Simei Street 1 #04-531. Your use of this website constitutes acceptance of these Terms of Use. If you do not agree, you must not use this site. We reserve the right to edit or delete content, including these Terms of Use, at any time without notice.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-3">Use of This Site</h3>
